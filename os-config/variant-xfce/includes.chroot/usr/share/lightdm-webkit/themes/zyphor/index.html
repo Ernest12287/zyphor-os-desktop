@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Zyphor OS</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!--
+    Zyphor OS login screen — LightDM WebKit greeter theme.
+
+    Layout follows Deepin 20: a large clock at the top, one centred glass card
+    holding the account picture, name and password field, a round submit button
+    underneath, the distro mark bottom-left and the power menu bottom-right.
+  -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <div class="wallpaper"></div>
+  <div class="scrim"></div>
+
+  <div class="top">
+    <div class="clock">
+      <div class="clock-time" id="clock-time">--:--</div>
+      <div class="clock-date" id="clock-date"></div>
+    </div>
+    <div class="user-strip" id="user-strip" hidden></div>
+  </div>
+
+  <main class="stage">
+    <section class="card" id="card">
+      <div class="avatar">
+        <img id="avatar" src="assets/zyphor-avatar.png" alt="">
+      </div>
+
+      <h1 class="user-name" id="user-name">Zyphor OS</h1>
+      <p class="notice" id="notice" hidden></p>
+
+      <form class="credentials" id="credentials" autocomplete="off">
+        <input class="password" id="password" type="password" placeholder="Password"
+               aria-label="Password" autocomplete="current-password" spellcheck="false">
+      </form>
+
+      <p class="caps" id="caps" hidden>Caps Lock is on</p>
+    </section>
+
+    <button class="submit" id="submit" type="button" aria-label="Log in">
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M5 12h13M12 5l7 7-7 7"></path>
+      </svg>
+    </button>
+  </main>
+
+  <footer class="bottom">
+    <div class="brand">
+      <span class="brand-name">Zyphor OS</span>
+      <span class="brand-sub" id="brand-sub"></span>
+    </div>
+
+    <div class="power-wrap">
+      <button class="power" id="power" type="button" aria-label="Power options"
+              aria-haspopup="true" aria-expanded="false">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M12 4v8"></path>
+          <path d="M7.6 6.5a7.5 7.5 0 1 0 8.8 0"></path>
+        </svg>
+      </button>
+
+      <div class="power-menu" id="power-menu" role="menu" hidden>
+        <button class="power-item" data-action="suspend" type="button" role="menuitem">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.5A8.5 8.5 0 0 1 9.5 4a8.5 8.5 0 1 0 10.5 10.5z"></path></svg>
+          <span>Suspend</span>
+        </button>
+        <button class="power-item" data-action="restart" type="button" role="menuitem">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 12a8 8 0 1 1-2.5-5.8"></path><path d="M20 4v4h-4"></path></svg>
+          <span>Restart</span>
+        </button>
+        <button class="power-item" data-action="shutdown" type="button" role="menuitem">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v8"></path><path d="M7.6 6.5a7.5 7.5 0 1 0 8.8 0"></path></svg>
+          <span>Shut down</span>
+        </button>
+      </div>
+    </div>
+  </footer>
+
+  <div class="demo-badge" id="demo-badge" hidden>Preview — LightDM not connected</div>
+
+  <script src="js/theme.js"></script>
+</body>
+</html>

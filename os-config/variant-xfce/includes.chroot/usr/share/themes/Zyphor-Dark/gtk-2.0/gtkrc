@@ -1,0 +1,28 @@
+# Zyphor-Dark GTK2 fallback
+gtk-color-scheme = "bg_color:#0a0c12\nfg_color:#ffffff\nbase_color:#141720\ntext_color:#ffffff\nselected_bg_color:#3773e6\nselected_fg_color:#ffffff\ntooltip_bg_color:#1a1d26\ntooltip_fg_color:#ffffff"
+
+style "default" {
+    bg[NORMAL]      = "#0a0c12"
+    bg[ACTIVE]      = "#141720"
+    bg[PRELIGHT]    = "#1e2130"
+    bg[SELECTED]    = "#3773e6"
+    bg[INSENSITIVE] = "#0a0c12"
+
+    fg[NORMAL]      = "#ffffff"
+    fg[ACTIVE]      = "#ffffff"
+    fg[PRELIGHT]    = "#ffffff"
+    fg[SELECTED]    = "#ffffff"
+    fg[INSENSITIVE] = "#666666"
+
+    base[NORMAL]    = "#141720"
+    base[ACTIVE]    = "#1e2130"
+    base[PRELIGHT]  = "#1e2130"
+    base[SELECTED]  = "#3773e6"
+
+    text[NORMAL]    = "#ffffff"
+    text[ACTIVE]    = "#ffffff"
+    text[PRELIGHT]  = "#ffffff"
+    text[SELECTED]  = "#ffffff"
+}
+
+class "*" style "default"

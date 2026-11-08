@@ -1,0 +1,318 @@
+/* ============================================================
+   Zyphor-Dark — GTK3 theme for the Zyphor OS login screen
+
+   lightdm-gtk-greeter applies the *GTK theme* named in
+   /etc/lightdm/lightdm-gtk-greeter.conf (theme-name = Zyphor-Dark),
+   so this file is what styles the login screen. It only has an
+   effect on the widgets the greeter builds, which is why the
+   transparent toplevel and the card below are safe to set here.
+
+   Widget names follow the upstream sample stylesheet shipped by the
+   greeter itself (/usr/share/doc/lightdm-gtk-greeter/sample-lightdm-gtk-greeter.css):
+     .lightdm-gtk-greeter  #panel_window  #login_window  #content_frame
+     #user_combobox  #user_image  #user_image_border  #buttonbox_frame
+     #shutdown_button  #restart_button  #greeter_infobar
+     #shutdown_dialog  #restart_dialog
+   Anything else (#login-box, .user-image, #clock-label, ...) is not
+   part of the greeter and would be silently ignored.
+   ============================================================ */
+
+* {
+    font-family: "Cantarell", "Noto Sans", "DejaVu Sans", sans-serif;
+    -gtk-icon-style: regular;
+}
+
+/* Let the wallpaper (background = ...zyphor-login-bg.jpg) show through. */
+.lightdm-gtk-greeter {
+    background-color: transparent;
+    color: #e8f0ff;
+}
+
+/* ── Top indicator panel ───────────────────────────────────── */
+
+#panel_window {
+    background-color: rgba(9, 14, 24, 0.42);
+    color: rgba(232, 240, 255, 0.85);
+    box-shadow: inset 0 -1px rgba(255, 255, 255, 0.06);
+    padding: 2px 10px;
+}
+
+#panel_window .menubar,
+#panel_window .menubar > .menuitem {
+    background-color: transparent;
+    color: inherit;
+    padding: 3px 8px;
+    text-shadow: none;
+}
+
+#panel_window .menubar > .menuitem:hover {
+    background-color: rgba(255, 255, 255, 0.10);
+    border-radius: 7px;
+    color: #ffffff;
+}
+
+#panel_window .button {
+    background-color: transparent;
+    background-image: none;
+    border: none;
+    border-radius: 7px;
+    box-shadow: none;
+    color: inherit;
+    padding: 3px 7px;
+}
+
+#panel_window .button:hover {
+    background-color: rgba(255, 255, 255, 0.12);
+    color: #ffffff;
+}
+
+#panel_window label,
+#panel_window .label {
+    color: inherit;
+    font-size: 13px;
+    text-shadow: none;
+}
+
+/* ── Login card ────────────────────────────────────────────── */
+
+#login_window {
+    background-color: rgba(16, 24, 38, 0.74);
+    border: 1px solid rgba(255, 255, 255, 0.10);
+    border-radius: 20px;
+    padding: 24px 26px 18px;
+    box-shadow:
+        0 26px 64px rgba(0, 0, 0, 0.55),
+        inset 0 1px rgba(255, 255, 255, 0.06);
+    color: #e8f0ff;
+}
+
+/* Frame that wraps avatar + name + entry. */
+#content_frame {
+    background-color: transparent;
+    border: none;
+    box-shadow: none;
+    padding: 4px 0 12px;
+}
+
+/* ── Account picture ──────────────────────────────────────── */
+
+#user_image {
+    border-radius: 24px;
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    box-shadow: 0 10px 26px rgba(0, 0, 0, 0.45);
+    background-color: #0d1523;
+}
+
+#user_image_border {
+    background-color: transparent;
+    border: none;
+    box-shadow: none;
+    border-radius: 26px;
+}
+
+/* ── User name / session dropdown ─────────────────────────── */
+
+#user_combobox {
+    background-color: transparent;
+    color: #ffffff;
+    border: none;
+    box-shadow: none;
+}
+
+#user_combobox .button,
+#user_combobox button {
+    background-color: transparent;
+    background-image: none;
+    border: none;
+    box-shadow: none;
+    color: #ffffff;
+    font-size: 15px;
+    font-weight: 500;
+    padding: 3px 8px;
+}
+
+#user_combobox .button:hover,
+#user_combobox button:hover {
+    color: #ffffff;
+    background-color: rgba(255, 255, 255, 0.08);
+    border-radius: 8px;
+}
+
+#user_combobox .arrow {
+    color: rgba(232, 240, 255, 0.7);
+}
+
+/* ── Password entry ───────────────────────────────────────── */
+
+#login_window .entry {
+    background-color: rgba(255, 255, 255, 0.07);
+    background-image: none;
+    color: #e8f0ff;
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    border-radius: 11px;
+    padding: 9px 13px;
+    caret-color: #ffffff;
+    box-shadow: none;
+    transition: background-color 150ms ease, border-color 150ms ease, box-shadow 150ms ease;
+}
+
+#login_window .entry:focus {
+    background-color: rgba(255, 255, 255, 0.11);
+    border-color: rgba(74, 144, 255, 0.80);
+    box-shadow: 0 0 0 3px rgba(47, 125, 246, 0.18);
+}
+
+#login_window .entry:disabled {
+    color: rgba(232, 240, 255, 0.40);
+}
+
+/* ── Action buttons (unlock / log in / cancel) ────────────── */
+
+#login_window .button,
+#login_window button {
+    background-image: linear-gradient(to bottom, #4a90ff, #1f63e0);
+    background-color: #2f7df6;
+    color: #ffffff;
+    border: none;
+    border-radius: 10px;
+    padding: 9px 24px;
+    font-size: 14px;
+    font-weight: 600;
+    box-shadow: 0 3px 12px rgba(31, 99, 224, 0.35);
+    text-shadow: none;
+}
+
+#login_window .button:hover,
+#login_window button:hover {
+    background-image: linear-gradient(to bottom, #5c9dff, #2a6ff0);
+    box-shadow: 0 5px 18px rgba(47, 125, 246, 0.50);
+}
+
+#login_window .button:active,
+#login_window button:active {
+    background-image: linear-gradient(to bottom, #2c72e8, #1a52b8);
+    box-shadow: none;
+}
+
+#login_window .button:focus,
+#login_window button:focus {
+    outline: 2px solid rgba(255, 255, 255, 0.45);
+    outline-offset: 2px;
+}
+
+/* Container holding those buttons. */
+#buttonbox_frame {
+    background-color: transparent;
+    border: none;
+    box-shadow: none;
+    padding: 0;
+}
+
+/* ── Power buttons under the card ─────────────────────────── */
+
+#shutdown_button.button,
+#restart_button.button {
+    border-radius: 50%;
+    min-width: 22px;
+    min-height: 22px;
+    padding: 8px;
+    background-image: none;
+    background-color: rgba(10, 16, 28, 0.55);
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    box-shadow: none;
+}
+
+#shutdown_button.button:hover {
+    background-color: rgba(255, 88, 88, 0.22);
+    border-color: rgba(255, 110, 110, 0.55);
+}
+
+#restart_button.button:hover {
+    background-color: rgba(74, 144, 255, 0.22);
+    border-color: rgba(110, 165, 255, 0.55);
+}
+
+/* ── Error / hint bar ─────────────────────────────────────── */
+
+#greeter_infobar {
+    background-color: rgba(255, 88, 88, 0.16);
+    border: 1px solid rgba(255, 110, 110, 0.35);
+    border-radius: 10px;
+    color: #ffd7d7;
+}
+
+#greeter_infobar .label,
+#greeter_infobar label {
+    color: #ffd7d7;
+}
+
+/* ── Power-off / restart confirmation dialogs ─────────────── */
+
+#shutdown_dialog,
+#restart_dialog {
+    background-color: rgba(13, 19, 32, 0.97);
+    border: 1px solid rgba(255, 255, 255, 0.10);
+    border-radius: 16px;
+    color: #e8f0ff;
+}
+
+#shutdown_dialog label,
+#restart_dialog label {
+    color: #e8f0ff;
+}
+
+/* ── Menus (session / language / keyboard selectors) ──────── */
+
+menu,
+.menu {
+    background-color: rgba(13, 19, 32, 0.97);
+    border: 1px solid rgba(255, 255, 255, 0.10);
+    border-radius: 12px;
+    padding: 4px;
+    color: #e8f0ff;
+}
+
+menuitem,
+.menuitem {
+    color: rgba(232, 240, 255, 0.88);
+    border-radius: 8px;
+    padding: 7px 12px;
+}
+
+menuitem:hover,
+.menuitem:hover {
+    background-color: rgba(255, 255, 255, 0.09);
+    color: #ffffff;
+}
+
+menuitem:disabled {
+    color: rgba(232, 240, 255, 0.35);
+}
+
+separator {
+    background-color: rgba(255, 255, 255, 0.09);
+    min-height: 1px;
+}
+
+/* ── Scrollbars ───────────────────────────────────────────── */
+
+scrollbar {
+    background-color: transparent;
+}
+
+scrollbar slider {
+    background-color: rgba(255, 255, 255, 0.20);
+    border-radius: 4px;
+    min-width: 4px;
+    min-height: 4px;
+}
+
+scrollbar slider:hover {
+    background-color: rgba(255, 255, 255, 0.32);
+}
+
+/* ── Focus rings ──────────────────────────────────────────── */
+
+*:focus {
+    outline-color: rgba(74, 144, 255, 0.75);
+}
